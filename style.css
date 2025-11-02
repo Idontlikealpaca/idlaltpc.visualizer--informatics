@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f3f4f6;
+    color: #6b7280;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: #e5e7eb;
+}
+
+.tab-btn.active {
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.tab-btn[data-algorithm="linear"].active {
+    background: linear-gradient(135deg, #ef4444, #ec4899);
+}
+
+.tab-btn[data-algorithm="binary"].active {
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+}
+
+.tab-btn[data-algorithm="interpolation"].active {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.tab-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tab-icon {
+    margin-right: 8px;
+}
+
+/* Stats */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.stat-item {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-purple {
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+}
+
+.stat-blue {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+
+.stat-green {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.stat-purple .stat-value {
+    color: #7c3aed;
+}
+
+.stat-blue .stat-value {
+    color: #2563eb;
+}
+
+.stat-green .stat-value {
+    color: #059669;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Visualization */
+.visualization {
+    margin-bottom: 32px;
+}
+
+.array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    min-height: 150px;
+}
+
+.array-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.array-index {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-bottom: 4px;
+}
+
+.array-item {
+    width: 64px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.array-item.default {
+    background: linear-gradient(135deg, #d1d5db, #9ca3af);
+}
+
+.array-item.in-range {
+    background: linear-gradient(135deg, #60a5fa, #2563eb);
+}
+
+.array-item.comparing {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(251, 191, 36, 0.5);
+}
+
+.array-item.found {
+    background: linear-gradient(135deg, #34d399, #059669);
+    animation: found-pulse 0.6s ease-in-out;
+}
+
+@keyframes found-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f9fafb;
+    padding: 12px 24px;
+    border-radius: 12px;
+}
+
+.input-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.input-group input {
+    width: 80px;
+    padding: 8px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #7c3aed;
+}
+
+.input-group input:disabled {
+    background: #f3f4f6;
+    cursor: not-allowed;
+}
+
+.btn {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.btn-secondary:hover {
+    background: #d1d5db;
+}
+
+/* Info Box */
+.info-box {
+    background: linear-gradient(135deg, #f3e8ff, #dbeafe);
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.info-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.info-text {
+    font-size: 0.875rem;
+    color: #374151;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        padding: 24px;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .array-item {
+        width: 48px;
+        font-size: 0.875rem;
+    }
+}
