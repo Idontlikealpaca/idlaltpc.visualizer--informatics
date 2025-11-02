@@ -169,7 +169,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 1px;
+    gap: 0px;
     min-height: 120px;
     padding: 10px 0;
     width: 100%;
@@ -179,7 +179,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1 1 0;
+    flex: 0 0 auto;
+    width: 0.8%;
     min-width: 0;
 }
 
@@ -193,15 +194,15 @@ body {
 
 .array-item {
     width: 100%;
-    border-radius: 2px;
+    border-radius: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid #e0e0e0;
-    padding: 1px;
+    border: 0.5px solid #e0e0e0;
+    padding: 0;
 }
 
 .array-item.default {
@@ -363,15 +364,20 @@ body {
     }
 
     .array-item {
-        font-size: 0.35rem;
-        padding: 0.5px;
+        font-size: 0.3rem;
+        padding: 0;
+        border-width: 0.3px;
     }
 
     .array-container {
-        gap: 0.5px;
+        gap: 0px;
     }
 
     .array-index {
-        font-size: 0.4rem;
+        font-size: 0.35rem;
+    }
+
+    .array-item-wrapper {
+        width: 0.9%;
     }
 }
