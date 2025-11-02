@@ -1,6 +1,6 @@
 // 전역 변수
-let array = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-let target = 70;
+let array = Array.from({length: 100}, (_, i) => i + 1);
+let target = 50;
 let activeAlgorithm = 'linear';
 let isSearching = false;
 let stats = { comparisons: 0, steps: 0 };
