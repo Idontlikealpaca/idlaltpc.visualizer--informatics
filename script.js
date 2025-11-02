@@ -50,13 +50,15 @@ function renderArray() {
         
         const indexEl = document.createElement('div');
         indexEl.className = 'array-index';
-        indexEl.textContent = index;
+        // 10의 배수 인덱스만 표시
+        indexEl.textContent = (index % 10 === 0) ? index : '';
         
         const item = document.createElement('div');
         item.className = 'array-item default';
         item.style.height = `${value}px`;
-        item.textContent = value;
+        item.textContent = '';
         item.dataset.index = index;
+        item.title = `값: ${value}, 인덱스: ${index}`;
         
         wrapper.appendChild(indexEl);
         wrapper.appendChild(item);
